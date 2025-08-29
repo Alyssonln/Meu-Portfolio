@@ -1,0 +1,12 @@
+/* Reset adaptado (Eric Meyer + preferências pessoais) */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+ul[role="list"], ol[role="list"] { list-style: none; }
+html:focus-within { scroll-behavior: smooth; }
+body { min-height: 100vh; text-rendering: optimizeLegibility; }
+a { text-decoration: none; color: inherit; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }

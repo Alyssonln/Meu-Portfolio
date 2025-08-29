@@ -1,0 +1,101 @@
+/* Variáveis por tema via data-theme (ThemeProvider aplica) */
+:root {
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+  --container: 1120px;
+  --space-1: 6px; --space-2: 10px; --space-3: 16px;
+  --space-4: 24px; --space-5: 36px; --space-6: 56px;
+}
+
+/* Tema DEV */
+:root[data-theme="dev"] {
+  --bg: #0e1114;
+  --surface: #171b21;
+  --text: #f3f6f7;
+  --muted: #b6c3c7;
+  --accent: #55cfc6;   /* teal da tela */
+  --accent2: #d2b690;  /* bege retrô */
+  --outline: #24303a;
+  --grad-from: #0f1520;
+  --grad-to: #1e2a36;
+}
+
+/* Tema GAMER */
+:root[data-theme="gamer"] {
+  --bg: #0f0f12;
+  --surface: #191a1f;
+  --text: #f5f6fa;
+  --muted: #b7b9c6;
+  --accent: #9b87f5;
+  --accent2: #6b5bd6;
+  --outline: #2a2b33;
+  --grad-from: #1a1b22;
+  --grad-to: #3a2f5f;
+}
+
+/* Tema SPACE */
+:root[data-theme="space"] {
+  --bg: #0b1320;
+  --surface: #151e2d;
+  --text: #eef2ff;
+  --muted: #a9b3c7;
+  --accent: #ff445a;
+  --accent2: #46d6ff;
+  --outline: #233046;
+  --grad-from: #0f1a2f;
+  --grad-to: #2b3b6e;
+}
+
+@font-face {
+  font-family: "InterVar";
+  src: local("Inter"), local("Inter var");
+  font-display: swap;
+}
+
+/* Base */
+html, body { background: var(--bg); color: var(--text); }
+body {
+  font-family: ui-sans-serif, InterVar, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Hero / header gradiente */
+.app-hero {
+  background: radial-gradient(1200px 600px at 50% -10%, var(--grad-to) 0%, transparent 60%),
+              linear-gradient(135deg, var(--grad-from), var(--grad-to));
+}
+
+/* Elementos gerais */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-4); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-radius: 12px; border: 1px solid var(--outline);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--surface), #ffffff 3%), var(--surface));
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+/* variante para botões inativos do ThemeSwitcher */
+.btn.ghost {
+  background: transparent;
+  border-color: color-mix(in oklab, var(--outline), #ffffff 12%);
+  color: var(--text);
+}
+.btn.ghost:hover {
+  background: color-mix(in oklab, var(--surface), #ffffff 6%);
+  border-color: color-mix(in oklab, var(--accent), #ffffff 35%);
+}
+
+.btn:hover { transform: translateY(-1px); border-color: color-mix(in oklab, var(--accent), #fff 30%); }
+.btn.primary { background: linear-gradient(180deg, color-mix(in oklab, var(--accent), #fff 10%), var(--accent));
+               color: #0d0d0f; border-color: transparent; }
+.btn.primary:hover { filter: brightness(1.05); }
+.tag {
+  display: inline-block; font-size: 12px; padding: 4px 8px; border-radius: 999px;
+  color: #0d0d0f; background: var(--accent); border: 1px solid color-mix(in oklab, var(--accent), #000 15%);
+}
+.card {
+  border: 1px solid var(--outline); border-radius: var(--radius);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--surface), #fff 3%), var(--surface));
+  box-shadow: var(--shadow);
+}
+hr.sep { border: none; height: 1px; background: var(--outline); }
