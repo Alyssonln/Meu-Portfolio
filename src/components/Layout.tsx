@@ -3,11 +3,28 @@ import { Github, Linkedin, Instagram } from "lucide-react";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
+      {/* estilos de responsividade específicos do footer */}
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-wrap {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+          .footer-social {
+            width: 100%;
+            display: flex;
+            gap: 10px;
+          }
+        }
+      `}</style>
+
       <main className="container" style={{ paddingTop: 28, paddingBottom: 48 }}>
         {children}
       </main>
+
       <footer
-        className="container p4 text-muted"
+        className="container p4 text-muted footer-wrap"
         style={{
           borderTop: "1px solid var(--outline)",
           display: "flex",
@@ -17,17 +34,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           flexWrap: "wrap",
         }}
       >
-        <small>
-          © {new Date().getFullYear()} Alysson Nunes
-        </small>
+        <small>© {new Date().getFullYear()} Alysson Nunes</small>
 
         {/* Ícones sociais no footer */}
-        <div style={{ display: "flex", gap: 10 }}>
+        <div className="footer-social" style={{ display: "flex", gap: 10 }}>
           <a
             className="btn"
             href="https://www.linkedin.com/in/alysson-nunes"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
             title="LinkedIn"
           >
@@ -37,7 +52,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             className="btn"
             href="https://github.com/Alyssonln"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="GitHub"
             title="GitHub"
           >
@@ -47,7 +62,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             className="btn"
             href="https://www.instagram.com/alyssonlnunes/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             title="Instagram"
           >

@@ -99,3 +99,59 @@ body {
   box-shadow: var(--shadow);
 }
 hr.sep { border: none; height: 1px; background: var(--outline); }
+
+/* ------------------------- */
+/* Responsividade global     */
+/* ------------------------- */
+
+/* Grids utilitários (funcionam mesmo sem utilities.css) */
+.grid { display: grid; gap: var(--space-4); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+/* Imagens dentro de cards: 100% width e sem estourar */
+.card img { display: block; width: 100%; height: auto; }
+
+/* Tablet <= 1024px: 3 -> 2 colunas */
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* Tablet <= 1024px: 3 -> 2 colunas (já existia acima, mantemos) */
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* <= 768px: 2 colunas para grid-3, 1 coluna para grid-2 */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); } /* << mantém 2 colunas */
+  .h1 { font-size: clamp(26px, 6vw, 34px); line-height: 1.15; }
+  .card .btn { width: 100%; justify-content: center; }
+}
+
+/* <= 560px: agora sim 1 coluna para grid-3 */
+@media (max-width: 560px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* Mobile pequeno <= 425px */
+@media (max-width: 425px) {
+  .container { padding: 0 14px; }
+  .h1 { font-size: clamp(24px, 7vw, 30px); }
+  .tag { font-size: 11px; padding: 3px 7px; }
+}
+
+/* Mobile muito pequeno <= 375px */
+@media (max-width: 375px) {
+  .container { padding: 0 12px; }
+  .h1 { font-size: clamp(22px, 7.5vw, 28px); }
+}
+
+/* Mobile ultra-compacto <= 320px */
+@media (max-width: 320px) {
+  .container { padding: 0 10px; }
+  .h1 { font-size: 22px; }
+  .btn { padding: 9px 12px; }
+}
