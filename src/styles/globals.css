@@ -155,3 +155,42 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
   .h1 { font-size: 22px; }
   .btn { padding: 9px 12px; }
 }
+
+/* ===== Projects layout (página Projetos) ===== */
+.projectsSection { margin-top: 48px; }
+
+.projectsHeader h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+.projectsHeader p { opacity: .8; margin: 0 0 18px; }
+
+.projectsGrid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;      /* 1 col no mobile */
+}
+
+/* 2 colunas a partir de 768px */
+@media (min-width: 768px) {
+  .projectsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* wrapper para igualar alturas e posicionar o selo */
+.projectItem {
+  position: relative;
+  display: flex;     /* iguala alturas dos Cards */
+}
+.projectItem > * { flex: 1; }
+
+/* selo Web/Mobile */
+.projectBadge {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-size: 12px; font-weight: 700;
+  padding: 6px 10px; border-radius: 999px;
+  background: color-mix(in oklab, var(--accent), #000 85%);
+  border: 1px solid color-mix(in oklab, var(--accent), #000 65%);
+  backdrop-filter: blur(4px);
+}
