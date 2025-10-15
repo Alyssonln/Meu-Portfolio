@@ -13,7 +13,7 @@ export default function Projects() {
             description="Sistema para clínicas com autenticação, agenda, cadastro de pacientes e profissionais, finanças e múltiplos perfis."
             img="/img/mind-clinica.png"
             siteUrl="https://mindclinicapsi.com.br/"
-            repoUrl="https://github.com/Alyssonln/Gestao-Clinica-"
+            repoUrl="https://github.com/Alyssonln/Gestao-Clinica"
           />
         </div>
 
