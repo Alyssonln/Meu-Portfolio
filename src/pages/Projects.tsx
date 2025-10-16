@@ -9,7 +9,7 @@ export default function Projects() {
         <div className="projectItem">
           <span className="projectBadge">Web</span>
           <Card
-            title="Sistema Clínica"
+            title="Clínica Mind"
             description="Sistema para clínicas com autenticação, agenda, cadastro de pacientes e profissionais, finanças e múltiplos perfis."
             img="/img/mind-clinica.png"
             siteUrl="https://mindclinicapsi.com.br/"
@@ -17,15 +17,14 @@ export default function Projects() {
           />
         </div>
 
-        {/* MOBILE */}
         <div className="projectItem">
-          <span className="projectBadge">Mobile</span>
+          <span className="projectBadge">Web</span>
           <Card
-            title="Sistema Clínica (Mobile)"
-            description="Versão mobile do sistema, focada em agenda e prontuários no bolso."
-            img="/img/mobile-cover.png"            /* coloque sua capa aqui */
-            siteUrl="https://seu-site-clinica.com"  /* landing/demo se tiver */
-            repoUrl="https://github.com/Alyssonln/sistema-clinica"
+            title="Carteira Pessoal"
+            description="Aplicação web para controle de finanças pessoais, com registro de entradas e saídas, cálculo automático de saldo e filtro por mês."
+            img="/img/mypocket.png"            /* coloque sua capa aqui */
+            siteUrl="https://mypocket-portfolio.vercel.app"  /* landing/demo se tiver */
+            repoUrl="https://github.com/Alyssonln/mypocket-portfolio"
           />
         </div>
       </div>
