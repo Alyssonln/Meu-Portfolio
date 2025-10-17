@@ -4,7 +4,8 @@ export default function Projects() {
   return (
     <section id="projects" className="projectsSection">
 
-      <div className="projectsGrid">
+      {/* wrapper com rolagem horizontal */}
+      <div className="projectsScroll">
         {/* WEB */}
         <div className="projectItem">
           <span className="projectBadge">Web</span>
@@ -22,9 +23,20 @@ export default function Projects() {
           <Card
             title="Carteira Pessoal"
             description="Aplicação web para controle de finanças pessoais, com registro de entradas e saídas, cálculo automático de saldo e filtro por mês."
-            img="/img/mypocket.png"            /* coloque sua capa aqui */
-            siteUrl="https://mypocket-portfolio.vercel.app"  /* landing/demo se tiver */
+            img="/img/mypocket.png"
+            siteUrl="https://mypocket-portfolio.vercel.app"
             repoUrl="https://github.com/Alyssonln/mypocket-portfolio"
+          />
+        </div>
+
+        <div className="projectItem">
+          <span className="projectBadge">Web</span>
+          <Card
+            title="Clíma Hoje"
+            description="Aplicação web que exibe a previsão do tempo em tempo real, com busca por cidade e interface leve e responsiva."
+            img="/img/weather.png"
+            siteUrl="https://weather-app-alyssonln.vercel.app/"
+            repoUrl="https://github.com/Alyssonln/Weather"
           />
         </div>
       </div>

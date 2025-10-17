@@ -117,16 +117,11 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
   .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 
-/* Tablet <= 1024px: 3 -> 2 colunas (já existia acima, mantemos) */
-@media (max-width: 1024px) {
-  .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-
 /* <= 768px: 2 colunas para grid-3, 1 coluna para grid-2 */
 @media (max-width: 768px) {
   .container { padding: 0 16px; }
   .grid-2 { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); } /* << mantém 2 colunas */
+  .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); } /* mantém 2 colunas */
   .h1 { font-size: clamp(26px, 6vw, 34px); line-height: 1.15; }
   .card .btn { width: 100%; justify-content: center; }
 }
@@ -156,40 +151,55 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
   .btn { padding: 9px 12px; }
 }
 
-/* ===== Projects layout (página Projetos) ===== */
+/* ===== Projects layout (carrossel horizontal) ===== */
 .projectsSection { margin-top: 48px; }
 
-.projectsHeader h2 {
-  font-size: 28px;
-  line-height: 1.2;
-  margin: 0 0 6px;
+.projectsHeader h2{
+  font-size: 28px; line-height: 1.2; margin: 0 0 6px;
 }
-.projectsHeader p { opacity: .8; margin: 0 0 18px; }
+.projectsHeader p{ opacity:.8; margin:0 0 18px; }
 
-.projectsGrid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;      /* 1 col no mobile */
+/* container com rolagem horizontal */
+.projectsScroll{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory;
+  padding: 4px 0 14px;
+  /* “sangra” até as bordas do container para os cards encostarem na margem */
+  margin-left: calc(var(--space-4) * -1);
+  margin-right: calc(var(--space-4) * -1);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface);
+}
+.projectsScroll::-webkit-scrollbar{ height:8px; }
+.projectsScroll::-webkit-scrollbar-thumb{ background: var(--accent); border-radius:10px; }
+.projectsScroll::-webkit-scrollbar-track{ background: var(--surface); }
+
+/* cada item (wrapper do Card) vira “slide” */
+.projectItem{
+  position:relative;
+  display:flex;             /* mantém o Card com altura total */
+  flex: 0 0 320px;          /* largura base do slide */
+  scroll-snap-align:start;
+}
+.projectItem > *{ flex:1; } /* Card ocupa toda a altura */
+
+@media (min-width: 768px){
+  .projectItem{ flex-basis: 360px; }
+}
+@media (min-width: 1100px){
+  .projectItem{ flex-basis: 380px; }
 }
 
-/* 2 colunas a partir de 768px */
-@media (min-width: 768px) {
-  .projectsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-/* wrapper para igualar alturas e posicionar o selo */
-.projectItem {
-  position: relative;
-  display: flex;     /* iguala alturas dos Cards */
-}
-.projectItem > * { flex: 1; }
-
-/* selo Web/Mobile */
-.projectBadge {
-  position: absolute;
-  top: 10px; left: 10px;
-  font-size: 12px; font-weight: 700;
-  padding: 6px 10px; border-radius: 999px;
+/* selo Web/Mobile (mantido) */
+.projectBadge{
+  position:absolute; top:10px; left:10px;
+  font-size:12px; font-weight:700;
+  padding:6px 10px; border-radius:999px;
   background: color-mix(in oklab, var(--accent), #000 85%);
   border: 1px solid color-mix(in oklab, var(--accent), #000 65%);
   backdrop-filter: blur(4px);
