@@ -39,6 +39,17 @@ export default function Projects() {
             repoUrl="https://github.com/Alyssonln/Weather"
           />
         </div>
+        
+        <div className="projectItem">
+          <span className="projectBadge">Web</span>
+          <Card
+            title="Clíma Hoje"
+            description="Aplicação web que exibe a previsão do tempo em tempo real, com busca por cidade e interface leve e responsiva."
+            img="/img/calculadora.png"
+            siteUrl="https://calculadora-aln.vercel.app/"
+            repoUrl="https://github.com/Alyssonln/Calculadora"
+          />
+        </div>
       </div>
     </section>
   );
