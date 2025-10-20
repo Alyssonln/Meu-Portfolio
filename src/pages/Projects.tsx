@@ -18,11 +18,12 @@ export default function Projects() {
           </header>
 
           <div className="featuredTags">
-            <span className="tag">React + TypeScript</span>
-            <span className="tag">Firebase (Auth/Firestore)</span>
-            <span className="tag">Agenda & Finanças</span>
-            <span className="tag">Múltiplos Perfis</span>
-          </div>
+  <span className="tag">React + TypeScript</span>
+  <span className="tag">Vite</span>
+  <span className="tag">Firebase (Auth / Firestore / Functions)</span>
+  <span className="tag">Cloud Hosting</span>
+</div>
+
 
           <div className="featuredActions">
             <a
@@ -84,8 +85,8 @@ export default function Projects() {
         <div className="projectItem">
           <span className="projectBadge">Web</span>
           <Card
-            title="Calculadora"
-            description="Calculadora simples e responsiva, ideal para práticas de UI, formatação e operações básicas."
+            title="Site Portfólio"
+            description="Meu portfólio pessoal, desenvolvido com foco em performance e design, reúne meus principais projetos e demonstra minha evolução como desenvolvedor."
             img="/img/portfolio.png"
             siteUrl="https://alyssonln-portfolio.vercel.app/"
             repoUrl="https://github.com/Alyssonln/Meu-Portfolio"
