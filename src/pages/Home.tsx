@@ -39,7 +39,6 @@ export default function Home() {
       </section>
 
       <hr className="sep mt5" />
-      {/* os cards foram movidos para pages/Projects.tsx */}
     </>
   );
 }

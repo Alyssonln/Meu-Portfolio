@@ -4,7 +4,6 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  // fecha o drawer ao redimensionar para desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth > 768) setOpen(false);
@@ -15,7 +14,6 @@ export default function Header() {
 
   return (
     <header className="app-hero">
-      {/* estilos locais para responsividade do menu */}
       <style>{`
         /* Desktop: theme switcher inline; botão hambúrguer escondido */
         @media (min-width: 769px) {
@@ -51,7 +49,6 @@ export default function Header() {
             justifyContent: "space-between",
           }}
         >
-          {/* Esquerda: Logo / imagem */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <img
               src="/img/logo-img.png"
@@ -64,19 +61,16 @@ export default function Header() {
             />
           </div>
 
-          {/* Direita: ThemeSwitcher inline no desktop */}
           <div className="ts-inline">
             <ThemeSwitcher />
           </div>
 
-          {/* Botão hambúrguer no mobile */}
           <button
             className="btn ts-hamburger"
             aria-label="Abrir menu de temas"
             onClick={() => setOpen(true)}
             title="Temas"
           >
-            {/* ícone simples de hambúrguer */}
             <span style={{ display: "inline-block", lineHeight: 0 }}>
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <rect x="3" y="6" width="18" height="2" rx="1" />
@@ -88,7 +82,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Drawer de temas no mobile */}
       {open && (
         <>
           <div className="ts-drawer-backdrop" onClick={() => setOpen(false)} />

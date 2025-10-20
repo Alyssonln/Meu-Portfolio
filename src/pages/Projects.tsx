@@ -11,7 +11,7 @@ export default function Projects() {
           <header className="featuredHeader">
             <h2 className="h2">Clínica Mind</h2>
             <p className="featuredSubtitle">
-              Meu primeiro projeto freelancer e também meu sistema mais completo.
+              Meu primeiro trabalho freelancer e também meu sistema mais completo.
               Desenvolvi front-end e back-end com autenticação, agenda, cadastro de
               clientes e profissionais, finanças e integração com banco de dados.
             </p>

@@ -6,7 +6,6 @@
   --space-4: 24px; --space-5: 36px; --space-6: 56px;
 }
 
-/* Temas */
 :root[data-theme="dev"] {
   --bg: #0e1114;
   --surface: #171b21;
@@ -41,7 +40,6 @@
   --grad-to: #2b3b6e;
 }
 
-/* Fontes e base */
 @font-face { font-family: "InterVar"; src: local("Inter"), local("Inter var"); font-display: swap; }
 html, body { background: var(--bg); color: var(--text); }
 body {
@@ -49,14 +47,12 @@ body {
     Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Hero / header gradiente */
 .app-hero {
   background:
     radial-gradient(1200px 600px at 50% -10%, var(--grad-to) 0%, transparent 60%),
     linear-gradient(135deg, var(--grad-from), var(--grad-to));
 }
 
-/* Utilidades gerais */
 .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-4); }
 
 .btn {
@@ -96,12 +92,10 @@ body {
 
 hr.sep { border: none; height: 1px; background: var(--outline); }
 
-/* Grids utilitários */
 .grid { display: grid; gap: var(--space-4); }
 .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
 .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
 
-/* Responsividade base */
 @media (max-width: 1024px) { .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 768px) {
   .container { padding: 0 16px; }
@@ -126,26 +120,23 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
   .btn { padding: 9px 12px; }
 }
 
-/* ================= Projects ================= */
 .projectsSection { margin-top: 48px; }
 
 .projectsHeader h2 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
 .projectsHeader p { opacity:.8; margin:0 0 18px; }
 
-/* ---- Grade 2x2 para “Outros projetos” ---- */
 .projectsGrid{
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colunas fixas */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 8px;
   align-items: stretch;
 }
-/* mobile: 1 coluna */
+
 @media (max-width: 640px){
   .projectsGrid{ grid-template-columns: 1fr; }
 }
 
-/* Cada item dentro da grid */
 .projectItem{
   position: relative;
   display: block;
@@ -165,7 +156,6 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
   backdrop-filter: blur(4px);
 }
 
-/* ================= Destaque: Clínica Mind ================= */
 .featuredProject{
   position: relative;
   display: grid;
@@ -191,14 +181,17 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
   z-index:-1;
   pointer-events:none;
 }
+
 .featuredBadge{
   position:absolute; top:-12px; left:14px;
   font-size:12px; font-weight:700; letter-spacing:.3px;
   padding:6px 10px; border-radius:999px;
-  color:#55cfc6; background:#0e1114;
-  border:1px solid #24303a;
-  box-shadow:0 6px 16px rgba(0,0,0,.35);
+  color: var(--accent);
+  background: var(--bg);
+  border: 1px solid var(--outline);
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
 }
+
 .featuredContent{
   background: linear-gradient(180deg,
     color-mix(in oklab, var(--surface), #fff 4%),
@@ -218,13 +211,17 @@ hr.sep { border: none; height: 1px; background: var(--outline); }
 }
 .featuredActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px; }
 .featuredActions .btn{ border-color: color-mix(in oklab, var(--outline), #fff 12%); }
+
 .featuredActions .btn.primary{
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent), #fff 10%), var(--accent));
+  color:#0d0d0f;
   border-color: transparent;
-  background: linear-gradient(135deg, #55cfc6, #8ec5ff);
-  color:#0e1114;
-  box-shadow: 0 6px 16px rgba(85,207,198,.18);
+  box-shadow: none;
 }
-.featuredActions .btn.primary:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(85,207,198,.26); }
+.featuredActions .btn.primary:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
 
 .featuredMedia{
   border-radius: 16px;

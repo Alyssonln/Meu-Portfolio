@@ -1,25 +1,20 @@
-/* === Grid utilitárias === */
 .grid { display: grid; gap: var(--space-4); }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-/* Tablet <= 1024px: 3 -> 2 colunas */
 @media (max-width: 1024px) {
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* <= 768px: 2 colunas para grid-3, 1 coluna para grid-2 */
 @media (max-width: 768px) {
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* <= 560px: 1 coluna para tudo */
 @media (max-width: 560px) {
   .grid-3 { grid-template-columns: 1fr; }
 }
 
-/* === Spacing, text & helpers === */
 .m0{margin:0}
 .mt1{margin-top:var(--space-1)}.mt2{margin-top:var(--space-2)}
 .mt3{margin-top:var(--space-3)}.mt4{margin-top:var(--space-4)}.mt5{margin-top:var(--space-5)}.mt6{margin-top:var(--space-6)}
@@ -31,7 +26,6 @@
 .h3{font-size:clamp(18px,2.1vw,22px);line-height:1.1;font-weight:700}
 .round{border-radius:var(--radius)}
 
-/* Ajustes finos para telas pequenas */
 @media (max-width: 425px) { .p4 { padding: var(--space-3); } }
 @media (max-width: 375px) { .p4 { padding: 14px; } }
 @media (max-width: 320px) { .p4 { padding: 12px; } }

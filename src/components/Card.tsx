@@ -5,9 +5,9 @@ type CardProps = {
   title: string;
   description: string;
   tags?: string[];
-  img: string;       // imagem de capa obrigatória
-  siteUrl: string;   // link para o site / demo
-  repoUrl: string;   // link para o repositório
+  img: string;  
+  siteUrl: string;
+  repoUrl: string; 
 };
 
 export default function Card({ title, description, tags, img, siteUrl, repoUrl }: CardProps) {
@@ -19,13 +19,11 @@ export default function Card({ title, description, tags, img, siteUrl, repoUrl }
       viewport={{ once: true, margin: "-80px" }}
       transition={{ type: "spring", stiffness: 120, damping: 16 }}
     >
-      {/* imagem de capa */}
       <div
         className="round"
         style={{
           overflow: "hidden",
           border: "1px solid var(--outline)",
-          /* mantém proporção agradável mesmo se a imagem for muito alta/baixa */
           aspectRatio: "16 / 9",
           background: "color-mix(in oklab, var(--surface), #ffffff 2%)",
         }}
@@ -38,11 +36,9 @@ export default function Card({ title, description, tags, img, siteUrl, repoUrl }
         />
       </div>
 
-      {/* título + descrição */}
       <h3 className="h3 mt3">{title}</h3>
       <p className="mt2 text-muted">{description}</p>
 
-      {/* tags */}
       {tags && tags.length > 0 && (
         <div className="mt3" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           {tags.map((t) => (
@@ -51,7 +47,6 @@ export default function Card({ title, description, tags, img, siteUrl, repoUrl }
         </div>
       )}
 
-      {/* botões */}
       <div className="mt3" style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
         <a
           className="btn primary"

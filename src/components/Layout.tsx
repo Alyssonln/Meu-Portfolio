@@ -3,7 +3,6 @@ import { Github, Linkedin, Instagram } from "lucide-react";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      {/* estilos de responsividade específicos do footer */}
       <style>{`
         @media (max-width: 768px) {
           .footer-wrap {
@@ -36,7 +35,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <small>© {new Date().getFullYear()} Alysson Nunes</small>
 
-        {/* Ícones sociais no footer */}
         <div className="footer-social" style={{ display: "flex", gap: 10 }}>
           <a
             className="btn"

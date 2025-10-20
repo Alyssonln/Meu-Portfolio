@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { THEMES, THEME_STORAGE_KEY } from "./tokens";
-import type { ThemeKey, ThemeTokens } from "./tokens"; // tipos com import type
+import type { ThemeKey, ThemeTokens } from "./tokens";
 
 type ThemeContextValue = {
   theme: ThemeKey;
@@ -11,13 +11,12 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-// ordem de rotação dos temas (agora: Dev → Gamer → Space)
 const order: ThemeKey[] = ["dev", "gamer", "space"];
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeKey>(() => {
     const saved = localStorage.getItem(THEME_STORAGE_KEY) as ThemeKey | null;
-    // se não houver salvo, começa no tema DEV
+
     return saved && THEMES[saved] ? saved : "dev";
   });
 
